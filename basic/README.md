@@ -13,6 +13,8 @@ Integrantes:
 <b>Sebastián Fuentealba Arrepol</b>
 <br>
 <b>Francisca Martínez</b>
+<br>
+<b>Jordy Romero</b>
 
 
 DIRECTORY STRUCTURE
