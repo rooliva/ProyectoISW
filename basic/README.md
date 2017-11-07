@@ -11,6 +11,8 @@ Proyecto de Ingeniería de Software 2017-2. Proyecto desarrollado usando framewo
 Integrantes:
 
 <b>Sebastián Fuentealba Arrepol</b>
+<br>
+<b>Francisca Martínez</b>
 
 
 DIRECTORY STRUCTURE
