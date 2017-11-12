@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe72bab82c26072dc006c828076816b7",
+    "content-hash": "86f5ffdaa79da5885a67bf1301259643",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -213,6 +213,42 @@
                 "html"
             ],
             "time": "2017-06-03T02:28:16+00:00"
+        },
+        {
+            "name": "sateler/yii2-rut",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sateler/yii2-rut.git",
+                "reference": "340266da76da1e6d4105db74005c16e2226ad20c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sateler/yii2-rut/zipball/340266da76da1e6d4105db74005c16e2226ad20c",
+                "reference": "340266da76da1e6d4105db74005c16e2226ad20c",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "sateler\\rut\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Felipe Sateler",
+                    "email": "fsateler@gmail.com"
+                }
+            ],
+            "description": "Add chilean RUT formatting and validation",
+            "time": "2017-08-25T18:05:01+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -27,7 +27,7 @@ class SbAdminAsset extends AssetBundle
 
     ];
     public $js = [
-        'sbadmin/vendor/jquery/jquery.min.js',
+        //'sbadmin/vendor/jquery/jquery.min.js',
         'sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js',
         'sbadmin/vendor/jquery-easing/jquery.easing.min.js',
         'sbadmin/vendor/chart.js/Chart.min.js',
@@ -39,7 +39,8 @@ class SbAdminAsset extends AssetBundle
     ];
 
     public $depends = [
-        //'yii\web\YiiAsset',
+        'yii\web\YiiAsset',
         //'yii\bootstrap\BootstrapAsset',
+
     ];
 }
