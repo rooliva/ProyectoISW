@@ -22,6 +22,9 @@ class UsuarioController extends Controller
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
             ],
         ];
     }
@@ -62,13 +65,7 @@ class UsuarioController extends Controller
     {
         $model = new Usuario();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $numero_usuarios = Yii::$app->db->createCommand("select COUNT(*) from usuario")->queryAll();
-            $numero_usuarios = (int)$numero_usuarios[0]["count"];
-            $numero_usuarios++;
-            $model->id_usuario = $numero_usuarios;
-
-            $model->save();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_usuario]);
         } else {
             return $this->render('create', [

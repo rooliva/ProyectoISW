@@ -29,21 +29,25 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_usuario'], 'required'],
-            [['id_usuario'], 'integer'],
-            [['nombre_usuario', 'password'], 'string', 'max' => 15],
+            [['nombre_usuario', 'password'], 'required'],
+            ['nombre_usuario', 'unique', 'message' => 'El nombre de usuario ingresado ya existe'],
+            ['nombre_usuario', 'match', 'pattern' => "/^[0-9a-z]+$/", 'message' => 'Solo se aceptan letras minusculas y numeros enteros'],
+            ['password', 'integer', 'message' => 'Solo se aceptan numeros enteros'],
+
         ];
     }
 
     /**
      * @inheritdoc
      */
+
+     /* NOMBRE DE LOS LABELS EN LA VISTA PRINCIPAL*/
     public function attributeLabels()
     {
         return [
-            'id_usuario' => 'Id Usuario',
-            'nombre_usuario' => 'Nombre Usuario',
-            'password' => 'Password',
+            'id_usuario' => 'ID USUARIO',
+            'nombre_usuario' => 'NOMBRE USUARIO',
+            'password' => 'CONTRASEÑA USUARIO',
         ];
     }
 

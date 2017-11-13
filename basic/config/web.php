@@ -7,6 +7,7 @@ $config = [
     'id' => 'basic',
     'language' => 'es',
     'basePath' => dirname(__DIR__),
+    'language' => 'es',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',

@@ -8,11 +8,6 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="card">
-	<div class="card-header">
-		<h4><?=$model->isNewRecord ? 'Crear' : 'Actualizar'?> Usuario</h4>
-	</div>
-	<div class="card-body">
 <div class="usuario-form">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -22,13 +17,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Crear Usuario' : 'Actualizar Usuario', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
 
-</div>		
-	</div>
 </div>
-
-
