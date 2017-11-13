@@ -15,7 +15,8 @@ use yii\widgets\ActiveForm;
 
 	<?= $form->field($model, 'id_historial')->textInput(['maxlength' => true,'required'=> true]) ?>
 
-    <?= $form->field($model, 'id_reporte')->textInput(['required'=> true]) ?>
+    <?= ($form->field($model, 'id_reporte'))->textInput(['required'=> true]) ?>
+
 
     <?php
     echo $form->field($model, 'estado')->dropDownList([
