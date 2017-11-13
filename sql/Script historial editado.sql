@@ -172,15 +172,15 @@ INSERT INTO public.reporte(
 
 INSERT INTO public.historial(
             estado, descripcion)
-    VALUES (1,'descripcion1');
+    VALUES ('Largo aliento','descripcion1');
 
     INSERT INTO public.historial(
             estado, descripcion)
-    VALUES (2,'descripcion2');
+    VALUES ('En curso','descripcion2');
 
     INSERT INTO public.historial(
             estado, descripcion)
-    VALUES (2,'descripcion3');
+    VALUES ('En curso','descripcion3');
 
 
 ------------------------------------------------------------------------------------
