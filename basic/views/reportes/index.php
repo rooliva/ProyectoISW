@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Reporte', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Reporte', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -33,7 +33,25 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'recurso_servicio',
             // 'ubicacion',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+             'template' => '{view} {update} {delete}',
+             'buttons' => [
+                'view' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-eye"></span>', $url);
+                          },
+                'update' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-pencil"></span>', $url);
+                          },
+                'delete' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-trash-o"></span>', $url,
+                                ['data' => ['confirm' => 'Esta seguro que desea eliminar éste item?',
+                                            'method' => 'post'],]);
+                          }                                                    
+             ]
+            ],
         ],
     ]); ?>
 </div>

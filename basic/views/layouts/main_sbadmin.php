@@ -45,16 +45,13 @@ SbAdminAsset::register($this);
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseReportes" data-parent="#exampleAccordion">
             <i class="fa fa-pencil-square-o"></i>
             <span class="nav-link-text">Reportes</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
+          <ul class="sidenav-second-level collapse" id="collapseReportes">
             <li>
-              <a href="#">Navbar</a>
-            </li>
-            <li>
-              <a href="#">Cards</a>
+              <a href="index.php?r=reportes">Administrar Reportes</a>
             </li>
           </ul>
         </li>
@@ -65,7 +62,7 @@ SbAdminAsset::register($this);
           </a>
           <ul class="sidenav-second-level collapse" id="collapseUsuarios">
             <li>
-              <a href="index.php?r=usuario">Adninistrar Usuarios</a>
+              <a href="index.php?r=usuario">Administrar Usuarios</a>
             </li>
           </ul>
         </li>
@@ -76,24 +73,32 @@ SbAdminAsset::register($this);
           </a>
           <ul class="sidenav-second-level collapse" id="collapsePersonal">
             <li>
-              <a href="index.php?r=personal">Adninistrar Personal</a>
+              <a href="index.php?r=personal">Administrar Personal</a>
             </li>
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseInformes" data-parent="#exampleAccordion">
             <i class="fa fa-newspaper-o"></i>
-            <span class="nav-link-text">Informes</span>
+            <span class="nav-link-text">Historial</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseInformes">
             <li>
-              <a href="#">Navbar</a>
-            </li>
-            <li>
-              <a href="#">Cards</a>
+              <a href="index.php?r=historial">Administrar Historial</a>
             </li>
           </ul>
-        </li>                
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMail" data-parent="#exampleAccordion">
+            <i class="fa fa-envelope"></i>
+            <span class="nav-link-text">Contacto con Email</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMail">
+            <li>
+              <a href="index.php?r=site/contact">Enviar Email</a>
+            </li>
+          </ul>
+        </li>                          
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -103,11 +108,12 @@ SbAdminAsset::register($this);
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
- 
+        <!--
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesión</a>
         </li>
+        -->
       </ul>
     </div>
   </nav>

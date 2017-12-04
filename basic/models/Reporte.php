@@ -36,6 +36,7 @@ class Reporte extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['nombre_reporte', 'fecha_reporte', 'grupo', 'tipo_reporte', 'categoria', 'recurso_servicio', 'ubicacion'], 'required'],
             [['fecha_reporte'], 'safe'],
             [['nombre_reporte', 'grupo', 'tipo_reporte', 'categoria', 'recurso_servicio', 'ubicacion'], 'string', 'max' => 30],
         ];
