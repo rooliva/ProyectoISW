@@ -25,10 +25,30 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_usuario',
+            'id_personal',
             'nombre_usuario',
-            'password',
+           // 'password',
+            'tipo_usuario',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+             'template' => '{view} {update} {delete}',
+             'buttons' => [
+                'view' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-eye"></span>', $url);
+                          },
+                'update' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-pencil"></span>', $url);
+                          },
+                'delete' => function($url)
+                          {
+                             return Html::a('<span class="fa fa-trash-o"></span>', $url,['data-method'=>'post', 'data'=>['confirm' => '¿Estas seguro que quiere borrar este ítem?'],] );
+
+                              //return Html::a('<span class="fa fa-trash-o"></span>', $url,['data-method'=>'post']);
+                          }                                                    
+             ]
+            ],
         ],
     ]); ?>
 </div>

@@ -1,8 +1,14 @@
 <?php
 
 return [
+	/*'class' => 'yii\db\Connection',
+    'dsn' => 'pgsql:host=146.83.198.59;dbname=c9',
+    'username' => 'c9',
+    'password' => 'gA6vcw',
+    'charset' => 'utf8',*/
+
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;dbname=ProyectoISW',
+    'dsn' => 'pgsql:host=localhost;port=5432;dbname=Pruebas_ISW1',
     'username' => 'postgres',
     'password' => 'udeconce',
     'charset' => 'utf8',

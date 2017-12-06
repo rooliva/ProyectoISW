@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Usuario */
+/* @var $model app\models\Usuario */ 
 
 $this->title = $model->id_usuario;
 $this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
@@ -16,13 +16,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <!-- ACTUALIZAR USUARIO -->
-        <?= Html::a('Actualizar', ['update', 'id' => $model->id_usuario], ['class' => 'btn btn-primary']) ?> 
+        <?= Html::a('Actualizar', ['update', 'id' => $model->id_usuario], ['class' => 'btn btn-primary']) ?>
 
-        <!-- ELIMINAR USUARIO (METODO POST - VENTANAS EMERGENTES DE ELIMINACION)-->
+         <!-- ELIMINAR USUARIO (METODO POST - VENTANAS EMERGENTES DE ELIMINACION)-->
         <?= Html::a('Eliminar', ['delete', 'id' => $model->id_usuario], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'ALERTA! Estas seguro que quieres eliminar este usuario?', 
+                'confirm' => 'Estas seguro que quieres eliminar?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -30,10 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= DetailView::widget([
         'model' => $model,
+
         'attributes' => [
             'id_usuario',
+            'id_personal',
             'nombre_usuario',
             'password',
+            'tipo_usuario',
         ],
     ]) ?>
 

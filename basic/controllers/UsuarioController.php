@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Usuario;
+use app\models\Personal;
 use app\models\UsuarioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -64,12 +65,14 @@ class UsuarioController extends Controller
     public function actionCreate()
     {
         $model = new Usuario();
+        $model_personal = new Personal();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_usuario]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'model_personal' => $model_personal,
             ]);
         }
     }
@@ -83,12 +86,14 @@ class UsuarioController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model_personal = new Personal();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_usuario]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'model_personal' => $model_personal,
             ]);
         }
     }
