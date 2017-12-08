@@ -38,6 +38,11 @@ class ContactForm extends Model
     {
         return [
             'verifyCode' => 'Verification Code',
+             'name' => 'Nombre',
+             'email' => 'Email',
+             'subject' => 'Asunto',
+             'body' => 'Mensaje',
+             'verifyCode' => 'Verificación',            
         ];
     }
 
@@ -46,6 +51,27 @@ class ContactForm extends Model
      * @param  string  $email the target email address
      * @return boolean whether the model passes validation
      */
+
+    /*public function contact()
+    {
+        $content = "<p>Email: " . $this->email . "</p>";
+        $content .= "<p>Name: " . $this->name . "</p>";
+        $content .= "<p>Subject: " . $this->subject . "</p>";
+        $content .= "<p>Body: " . $this->body . "</p>";
+        if ($this->validate()) {
+            Yii::$app->mailer->compose("@app/mail/layouts/html", ["content" => $content])
+                ->setTo($this->email)
+                ->setFrom([$this->email => $this->name])
+                ->setSubject($this->subject)
+                ->setTextBody($this->body)
+                ->send();
+
+            return true;
+        } else {
+            return false;
+        }
+    }*/
+        
     public function contact($email)
     {
         $content = "<p>Email: " . $this->email . "</p>";
@@ -54,7 +80,7 @@ class ContactForm extends Model
         $content .= "<p>Body: " . $this->body . "</p>";
         if ($this->validate()) {
             Yii::$app->mailer->compose("@app/mail/layouts/html", ["content" => $content])
-                ->setTo($email)
+                ->setTo($this->email)
                 ->setFrom([$this->email => $this->name])
                 ->setSubject($this->subject)
                 ->setTextBody($this->body)
@@ -62,6 +88,8 @@ class ContactForm extends Model
 
             return true;
         } else {
+            var_dump($this->getErrors());
+            exit();
             return false;
         }
     }

@@ -10,14 +10,12 @@ use yii\grid\GridView;
 $this->title = 'Historials';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="historial-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Historial', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+<div class="card">
+    <div class="card-header">
+         <h4>Administrar Historiales <div class="pull-right"><?= Html::a('Crear Historial', ['create'], ['class' => 'btn btn-success']) ?></div></h4>       
+    </div>
+    <div class="card-body">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -29,7 +27,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'estado',
             'descripcion',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+             'template' => '{view} {update} {delete}',
+             'buttons' => [
+                'view' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-eye"></span>', $url);
+                          },
+                'update' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-pencil"></span>', $url);
+                          },
+                'delete' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-trash-o"></span>', $url,['data-method'=>'post']);
+                          }                                                    
+             ]
+            ],
         ],
-    ]); ?>
+    ]); ?>        
+    </div>
 </div>
+

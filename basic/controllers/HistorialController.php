@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Historial;
+use app\models\Reporte;
 use app\models\HistorialSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -64,12 +65,14 @@ class HistorialController extends Controller
     public function actionCreate()
     {
         $model = new Historial();
+        $model_reporte = new Reporte();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_historial]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'id_reporte' => $this->id_reporte,
             ]);
         }
     }
@@ -83,12 +86,14 @@ class HistorialController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model_reporte = new Reporte();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_historial]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'id_reporte' => $this->id_reporte,
             ]);
         }
     }

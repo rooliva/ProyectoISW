@@ -42,6 +42,12 @@ $config = [
                 'password' => 'sisreportes',
                 'port' => '587',
                 'encryption' => 'tls',
+                'streamOptions' => [
+                    'ssl' => [
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                    ],
+                ],                
             ]
         ],
         'log' => [

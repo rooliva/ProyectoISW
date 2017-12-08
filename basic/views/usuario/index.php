@@ -10,14 +10,12 @@ use yii\grid\GridView;
 $this->title = 'Usuarios Registrados';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="usuario-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Crear Usuario', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+<div class="card">
+    <div class="card-header">
+        <h4>Administrar Usuarios <div class="pull-right"><?= Html::a('Crear Usuario', ['create'], ['class' => 'btn btn-success']) ?></div></h4>        
+    </div>
+    <div class="card-body">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -28,7 +26,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'nombre_usuario',
             'password',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+             'template' => '{view} {update} {delete}',
+             'buttons' => [
+                'view' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-eye"></span>', $url);
+                          },
+                'update' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-pencil"></span>', $url);
+                          },
+                'delete' => function($url)
+                          {
+                              return Html::a('<span class="fa fa-trash-o"></span>', $url,['data-method'=>'post']);
+                          }                                                    
+             ]
+            ],
         ],
-    ]); ?>
+    ]); ?>        
+    </div>
 </div>

@@ -8,9 +8,9 @@ return [
     'charset' => 'utf8',*/
 
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;port=5432;dbname=ProyectoISW',
+    'dsn' => 'pgsql:host=localhost;port=5432;dbname=08DiciembreISW',
     'username' => 'postgres',
-    'password' => 'root',
+    'password' => 'postgres',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

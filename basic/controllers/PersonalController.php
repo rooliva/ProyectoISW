@@ -72,6 +72,7 @@ class PersonalController extends Controller
             $numero_personal++;
             $model->id_personal = $numero_personal;           
             $model->save();
+            
             return $this->redirect(['view', 'id' => $model->id_personal]);
         } else {
             return $this->render('create', [
@@ -108,12 +109,13 @@ class PersonalController extends Controller
      * @param integer $id
      * @return mixed
      */
+    //-------------------------------------
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
+    }//-------------------------------------
 
     /**
      * Finds the Personal model based on its primary key value.

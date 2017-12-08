@@ -37,7 +37,7 @@ class Personal extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_personal', 'id_usuario'], 'required'],
+            [['id_personal', 'id_usuario', 'apellidop_personal', 'apellidom_personal'], 'required'],
             [['id_personal', 'id_usuario'], 'integer'],
             [['nombre_personal', 'apellidop_personal', 'apellidom_personal', 'cargo_personal'], 'string', 'max' => 15],
             [['correo_personal'], 'string', 'max' => 50],
