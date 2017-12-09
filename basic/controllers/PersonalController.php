@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Personal;
-use app\models\Usuario;
 use app\models\PersonalSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -23,7 +22,9 @@ class PersonalController extends Controller
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
-
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
             ],
         ];
     }
@@ -63,21 +64,12 @@ class PersonalController extends Controller
     public function actionCreate()
     {
         $model = new Personal();
-        $model_usuario = new Usuario();
 
-        if ($model->load(Yii::$app->request->post())) {
-
-            $numero_personal = Yii::$app->db->createCommand("select COUNT(*) from personal")->queryAll();
-            $numero_personal = (int)$numero_personal[0]["count"];
-            $numero_personal++;
-            $model->id_personal = $numero_personal;           
-            $model->save();
-            
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_personal]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'model_usuario' => $model_usuario,
             ]);
         }
     }
@@ -91,14 +83,12 @@ class PersonalController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model_usuario = new Usuario();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_personal]);
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'model_usuario' => $model_usuario,
             ]);
         }
     }
@@ -109,13 +99,12 @@ class PersonalController extends Controller
      * @param integer $id
      * @return mixed
      */
-    //-------------------------------------
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }//-------------------------------------
+    }
 
     /**
      * Finds the Personal model based on its primary key value.

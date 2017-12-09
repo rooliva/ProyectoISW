@@ -10,12 +10,14 @@ use yii\grid\GridView;
 $this->title = 'Reportes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="reporte-index">
 
-<div class="card">
-    <div class="card-header">
-         <h4>Administrar Reportes <div class="pull-right"><?= Html::a('Crear Reporte', ['create'], ['class' => 'btn btn-success']) ?></div></h4>       
-    </div>
-    <div class="card-body">
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <p>
+        <?= Html::a('Crear Reporte', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -44,12 +46,12 @@ $this->params['breadcrumbs'][] = $this->title;
                           },
                 'delete' => function($url)
                           {
-                              return Html::a('<span class="fa fa-trash-o"></span>', $url,['data-method'=>'post']);
+                              return Html::a('<span class="fa fa-trash-o"></span>', $url,
+                                ['data' => ['confirm' => 'Esta seguro que desea eliminar éste item?',
+                                            'method' => 'post'],]);
                           }                                                    
              ]
             ],
         ],
-    ]); ?>        
-    </div>
+    ]); ?>
 </div>
-

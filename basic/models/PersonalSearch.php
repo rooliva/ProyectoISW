@@ -18,8 +18,8 @@ class PersonalSearch extends Personal
     public function rules()
     {
         return [
-            [['id_personal', 'id_usuario'], 'integer'],
-            [['nombre_personal', 'apellidop_personal', 'apellidom_personal', 'cargo_personal', 'correo_personal', 'rut_personal', 'tipo_reporte'], 'safe'],
+            [['id_personal'], 'integer'],
+            [['nombre_personal', 'apellidop_personal', 'apellidom_personal', 'cargo_personal', 'correo_personal', 'rut_personal', 'tipo_personal'], 'safe'],
         ];
     }
 
@@ -60,7 +60,6 @@ class PersonalSearch extends Personal
         // grid filtering conditions
         $query->andFilterWhere([
             'id_personal' => $this->id_personal,
-            'id_usuario' => $this->id_usuario,
         ]);
 
         $query->andFilterWhere(['like', 'nombre_personal', $this->nombre_personal])
@@ -69,7 +68,7 @@ class PersonalSearch extends Personal
             ->andFilterWhere(['like', 'cargo_personal', $this->cargo_personal])
             ->andFilterWhere(['like', 'correo_personal', $this->correo_personal])
             ->andFilterWhere(['like', 'rut_personal', $this->rut_personal])
-            ->andFilterWhere(['like', 'tipo_reporte', $this->tipo_reporte]);
+            ->andFilterWhere(['like', 'tipo_personal', $this->tipo_personal]);
 
         return $dataProvider;
     }
